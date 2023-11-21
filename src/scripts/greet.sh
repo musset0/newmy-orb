@@ -6,4 +6,4 @@ TO=$(circleci env subst "${PARAM_TO}")
 echo "Hello ${TO:-World}!"
 echo "v1.0.1"
 # cat /etc/opt/circleci/launch-agent-config.yaml
-echo ${Project_First_Var}
+echo ${Project_First_Var} | awk 'BEGIN{FS=""; OFS=","} {$0 = tolower($0); $1=$1} 1'
