@@ -14,11 +14,15 @@ steps:
   - greet:
       to: << parameters.to >>
   - run:
+      name: code reflection
+      command: |
+        echo `time`;
+  - run:
       name: modify cache according to the cache key
       command: |
         echo "This is Attack" > /home/circleci/project/README.md;
   - save_cache:
       name: Save Cache
-      key: my-cache-{{ checksum "README.md" }}
+      key: my-cache-
       paths:
         - README.md
