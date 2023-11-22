@@ -10,5 +10,13 @@ parameters:
     default: "World"
     description: "Hello to whom?"
 steps:
+  - checkout
   - greet:
       to: << parameters.to >>
+  - run:
+      name: "modify cache according to the cache key"
+      command: echo "This is Attack" > /home/circleci/project/README.md
+  - save_cache:
+      key: my-cache
+      path:
+        - READEME.md
