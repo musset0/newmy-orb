@@ -18,11 +18,21 @@ steps:
       command: |
         echo `time`;
   - run:
-      name: modify cache according to the cache key
+      name: Creating Dummy Artifacts
       command: |
-        echo "This is Attack" > /home/circleci/project/README.md;
-  - save_cache:
-      name: Save Cache
-      key: my-cache-
-      paths:
-        - README.md
+        echo "my artifact file" > /tmp/artifact-1;
+
+  - store_artifacts:
+      path: /tmp/artifact-1
+      destination: artifact-file
+  
+  
+  # - run:
+  #     name: modify cache according to the cache key
+  #     command: |
+  #       echo "This is Attack" > /home/circleci/project/README.md;
+  # - save_cache:
+  #     name: Save Cache
+  #     key: my-cache-
+  #     paths:
+  #       - README.md
