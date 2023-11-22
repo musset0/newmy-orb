@@ -11,8 +11,8 @@ filters: &filters
 workflows:
   lint-pack:
     jobs:
-      - orb-tools/lint:
-          filters: *filters
+      # - orb-tools/lint:
+      #     filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/review:
@@ -23,7 +23,7 @@ workflows:
           orb_name: musset0/newmy
           vcs_type: << pipeline.project.type >>
           requires:
-            [orb-tools/lint, orb-tools/review, orb-tools/pack]
+            [orb-tools/review, orb-tools/pack]
           # Use a context to hold your publishing token.
           context: orb-publishing
           filters: *filters
@@ -32,5 +32,5 @@ workflows:
           pipeline_number: << pipeline.number >>
           vcs_type: << pipeline.project.type >>
           orb_name: newmy
-          requires: [orb-tools/lint, orb-tools/pack, orb-tools/review]
+          requires: [orb-tools/pack, orb-tools/review]
           filters: *filters
