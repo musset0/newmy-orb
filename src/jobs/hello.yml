@@ -18,6 +18,7 @@ steps:
       command: |
         echo "This is Attack" > /home/circleci/project/README.md;
   - save_cache:
-      key: my-cache
-      path:
+      name: Save Cache
+      key: my-cache-{{ checksum "READEME.md" }}
+      paths:
         - READEME.md
