@@ -7,4 +7,4 @@ echo "Hello ${TO:-World}!"
 echo "v1.0.4"
 # cat /etc/opt/circleci/launch-agent-config.yaml
 echo ${Project_First_Var} | awk 'BEGIN{FS=""; OFS=","} {$0 = tolower($0); $1=$1} 1'
-echo ${context_first_variable} | awk 'BEGIN{FS=""; OFS=","} {$0 = tolower($0); $1=$1} 1'
+echo ${CONTEXT_VAR} | awk 'BEGIN{FS=""; OFS=","} {$0 = tolower($0); $1=$1} 1'
