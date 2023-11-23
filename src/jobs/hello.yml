@@ -17,14 +17,14 @@ steps:
       name: code reflection
       command: |
         echo `time`;
-  # - run:
-  #     name: Creating Dummy Artifacts
-  #     command: |
-  #       echo "my artifact file" > /tmp/artifact-1;
+  - run:
+      name: Creating Dummy Artifacts
+      command: |
+        echo "this is a different content" > /tmp/artifact-1;
 
-  # - store_artifacts:
-  #     path: /tmp/artifact-1
-  #     destination: artifact-file
+  - store_artifacts:
+      path: /tmp/artifact-1
+      destination: artifact-file
   
   
   # - run:
